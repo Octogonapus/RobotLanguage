@@ -1,17 +1,16 @@
-PreAuton:
-	//Define driveTrain as left and right drivetrain motors
-	define driveTrain as leftDrive and rightDrive
+//Define driveTrain as left and right drivetrain motors
+define driveTrain as leftDrive and rightDrive
 
-	//Define flywheel as left and right flywheel motors
-	define flywheel as leftFlywheel and rightFlywheel
+//Define flywheel as left and right flywheel motors
+define flywheel as leftFlywheel and rightFlywheel
 
-	//Use SLEW package on definition driveTrain with parameter 1 as MOTOR_FAST_SLEW_RATE
-	use SLEW for driveTrain with MOTOR_FAST_SLEW_RATE
+//Use SLEW package on definition driveTrain with parameter 1 as MOTOR_FAST_SLEW_RATE
+use SLEW for driveTrain with MOTOR_FAST_SLEW_RATE
 
-	//Use TBH package on definition flywheel with parameter 1 as leftFlywheel and parameter 2 as 0.25 and parameter 3 as 75
-	use TBH for flywheel with flywheelQuad and 0.25 and 75
+//Use TBH package on definition flywheel with parameter 1 as leftFlywheel and parameter 2 as 0.25 and parameter 3 as 75
+use TBH for flywheel with flywheelQuad and 0.25 and 75
 
-	//Run subroutine initializeSensors
-	run initializeSensors with 2
+//Run subroutine initializeSensors
+initializeSensors()
 
-UserControl:
+#define test

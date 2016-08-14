@@ -42,7 +42,7 @@ public class Parser
                 case "use":
                     try
                     {
-                        return parseUse(tokens);
+                        return parseUse(tokens) + "\n";
                     }
                     catch (Exception e)
                     {
@@ -50,16 +50,8 @@ public class Parser
                     }
                     break;
 
-                case "run":
-                    try
-                    {
-                        return parseRun(tokens);
-                    }
-                    catch (Exception e)
-                    {
-                        e.printStackTrace();
-                    }
-                    break;
+                default:
+                    return line + "\n";
             }
         }
 
@@ -96,32 +88,6 @@ public class Parser
             }
             else
                 throw new Exception("Invalid definition for tokens: " + Arrays.toString(tokens));
-        }
-        else
-            throw new Exception("Invalid tokens: " + Arrays.toString(tokens));
-    }
-
-    private static String parseRun(String tokens[]) throws Exception
-    {
-        if (tokens[0].equals("run"))
-        {
-            String result = "";
-
-            String subroutine = tokens[1];
-
-            List<String> parameters = new ArrayList<>();
-
-            if (tokens[2].equals("with"))
-                parameters = parseAndList(tokens, 3);
-
-            result += subroutine + "(";
-
-            for (String parameter : parameters)
-                result += parameter + ", ";
-
-            result = result.substring(0, result.length() - 2) + ");";
-
-            return result;
         }
         else
             throw new Exception("Invalid tokens: " + Arrays.toString(tokens));
